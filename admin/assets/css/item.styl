@@ -1,0 +1,212 @@
+
+.subscriber.selected {
+   /* background: #EEE;*/
+    border-bottom: 1px solid #CCC;
+    margin-top: -1px;
+    border-top: 1px solid #CCC;
+    outline: none;
+}
+
+.subscriber {
+    position: relative;
+    border-bottom: 1px solid #ebebeb;
+    min-height: 50px;
+    clear: both;
+    display: block;
+    outline: none;
+    margin-top: -1px;
+    border-top: 1px solid transparent;
+
+    padding: 10px 0;
+    font-size: 15px;
+    position: relative;
+    zoom: 1;
+
+    width: 560px;
+    min-width:940px;
+}
+
+.subscriber:hover {
+    border-radius:3px;
+
+    /*cursor: pointer;*/
+    background: #f4f4f4;
+
+    /*border-top: 1px solid #EBEBEB;
+
+     text-decoration: underline; */
+
+    background-color: rgba(0,132,180,0.1);
+    border-color: rgba(0, 132, 180, 0.15);
+}
+
+.subscriber .subscriber-state, .subscriber .subscriber-select {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-position: center center;
+    vertical-align: bottom;
+    margin: 0 0 5px 15px;
+    cursor: pointer;
+}
+
+.subscriber .subscriber-select:hover {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #B2B2B2;
+}
+
+.subscriber .subscriber-select:focus {
+    border: 1px solid #4D90FE;
+}
+
+.subscriber .subscriber-select {
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, .05);
+    border: 1px solid #C6C6C6;
+    border: 1px solid rgba(155, 155, 155, .57);
+    font-size: 1px;
+    height: 12px;
+    margin: 0 4px 20px 5px;
+    outline: 0;
+    vertical-align: bottom;
+    width: 12px;
+}
+
+.inline-block {
+    position: relative;
+    display: inline-block;
+}
+
+.subscriber .subscriber-select .checkbox{
+    background-color: white;
+    background-color: rgba(255, 255, 255, .65);
+}
+
+/* unpublished and activated */
+.subscriber .subscriber-state {
+    background: url(unpublish.png) no-repeat;
+}
+
+/* published and activated */
+.subscriber.published .subscriber-state {
+    background: url(publish.png) no-repeat;
+}
+
+/* published */
+.subscriber.deactivated .subscriber-state {
+    background: url(deactivated.png) no-repeat;
+}
+
+.subscriber.selected .subscriber-select {
+    background: url(checkmark.png) no-repeat -5px -5px;
+}
+
+.subscriber .subscriber-info {
+    margin-left: 4px;
+    margin-right: 6px;
+    min-height: 48px;
+    display: inline-block;
+    width: 90%;
+}
+
+.subscriber .subscriber-info-row + .subscriber-info-row {
+    margin-top: 15px;
+}
+
+.subscriber .subscriber-info-row {
+    display: block;
+    position: relative;
+    line-height: 15px;
+}
+
+.subscriber .subscriber-info-row .subscriber-info-name {
+}
+
+.subscriber:hover .subscriber-info-row .subscriber-info-name .subscriber-full-name {
+color: #0084B4 !important;
+}
+.subscriber .subscriber-info-row .subscriber-info-name .subscriber-full-name {
+    font-weight: bold;
+    color: #333 !important;
+
+}
+
+.subscriber .subscriber-info-row .subscriber-info-name .subscriber-email {
+    color: #999;
+    font-size: 12px;
+}
+
+.subscriber .subscriber-info-row .subscription-time {
+    color: #999 !important;
+    font-size: 11px;
+}
+
+.subscriber:hover .subscriber-actions {
+    visibility: visible;
+}
+
+.subscriber-actions {
+    font-size: 11px;
+    float:right;
+}
+
+.subscriber-actions a {
+    outline: none !important;
+}
+
+.subscriber-actions a:hover {
+    text-decoration: none;
+}
+
+.subscriber-actions a span b {
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.subscriber-actions a:hover span b {
+    text-decoration: underline;
+}
+
+.subscriber-actions a span i {
+    /*text-indent: -99999px;
+          background: transparent url(../img/sprite-icons.png) no-repeat;*/
+    outline: none;
+    width: 17px;
+    height: 17px;
+    margin: 0 2px 0 2px;
+    display: block;
+}
+
+.subscriber-actions a span i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.subscriber-actions .subscriber-action {
+}
+
+.subscriber-actions .action-remove, .subscriber-actions .action-toggle-activation {
+    margin-right:6px;
+}
+
+/* ativated, so action to deactivate */
+.subscriber-actions .action-toggle-activation a span i {
+    background: transparent url(lock.png) no-repeat;
+}
+
+/* deactivated, so action to activate */
+.subscriber.deactivated .subscriber-actions .action-toggle-activation a span i {
+    background: transparent url(unlock.png) no-repeat;
+}
+
+.subscriber-actions .action-remove a span i {
+    background: transparent url(delete.png) no-repeat;
+}
+
+.subscriber-actions a.edit-action span i {
+    background: transparent url(edit.png) no-repeat;
+}
+

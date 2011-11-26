@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.7.0" method="upgrade">
+
+    <name>Newsletter</name>
+    <creationDate>November 2011</creationDate>
+    <author>Amsayk</author>
+    <authorEmail>cisse.amadou.9@gmail.com</authorEmail>
+    <version>0.7.0</version>
+    <description>Joomla newsletter component</description>
+
+    <install>
+        <sql>
+            <file driver="mysql">install.mysql.sql</file>
+            <file driver="mysql" charset="utf8">install.mysql.sql</file>
+            <file driver="mysqli">install.mysql.sql</file>
+            <file driver="mysqli" charset="utf8">install.mysql.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql">uninstall.mysql.sql</file>
+            <file driver="mysql" charset="utf8">uninstall.mysql.sql</file>
+            <file driver="mysqli">uninstall.mysql.sql</file>
+            <file driver="mysqli" charset="utf8">uninstall.mysql.sql</file>
+        </sql>
+    </uninstall>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>newsletter.php</filename>
+        <filename>controller.php</filename>
+        <folder>controllers</folder>
+        <folder>models</folder>
+        <!--<folder>tables</folder>-->
+        <folder>views</folder>
+        <folder>assets</folder>
+    </files>
+
+    <languages folder="languages">
+    </languages>
+
+
+    <administration>
+        <menu>Newsletter Subscriptions</menu>
+
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>newsletter.php</filename>
+            <filename>controller.php</filename>
+            <filename>install.mysql.sql</filename>
+            <filename>uninstall.mysql.sql</filename>
+            <folder>controllers</folder>
+            <folder>models</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+            <folder>assets/public</folder>
+        </files>
+    </administration>
+
+</extension>

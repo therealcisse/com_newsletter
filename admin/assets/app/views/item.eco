@@ -1,0 +1,26 @@
+<div class="subscriber item" id="subscriber-<%= "#{@id}" %>">
+    <div class="subscriber-select inline-block" title="Select">
+        <div class="checkbox inline-block"></div>
+    </div>
+    <div class="subscriber-state" title="<% if @isActive() : %><% if @published : %>Click to unplublish<% else : %>Click to plublish<% end %><% else : %> The subscription is not activated. <% end %>"></div>
+    <div class="subscriber-info">
+        <div class="subscriber-info-row">
+            <span class="subscriber-name">
+                <a class="subscriber-fullname" title="click to edit" href="#/subscriber/<%= @id %>"><%= @nicename() %></a>
+                (<span class="subscriber-email"><%= @email %></span>)
+            </span> <span class="pull-right"><span data-rel='popover' class="label notice categories-label" title="Categories" data-popoverdata="<%= JSON.stringify(@categories) %>"><%= @categories.length %>  Categories</span>&nbsp;&nbsp;<span data-rel='popover' class="label notice language-label" title="Languages" data-popoverdata="<%= JSON.stringify(@languages) %>"><%= @languages.length %> languages</span></span>
+        </div>
+        <div class="subscriber-info-row">
+            <span class="subscription-time" title="<%= @registerDate %>"><% if @created_username : %> Created by <strong><%= @created_username %></strong> <% else : %> Subscribed <% end %>  <span data-date="<%= @registerDate %>" ><%= $.relativeDate Date.parse(@registerDate) %></span></span>
+            <span class="subscriber-actions clearfix">
+                <span class="subscriber-action action-toggle-activation">
+                   <a href="#" title="<%= if @isActive() then 'Deactivate' else 'Activate' %> subscription" class="activation-toggle-action js-action-toggle-activation"><span><i></i><b><%= if @isActive() then 'Deactivate' else 'Activate' %></b></span></a>
+               </span>
+                  <span class="subscriber-action action-remove">
+                     <a href="#" title="Remove subscription" class="remove-action js-action-remove"><span><i></i><b>Remove</b></span></a>
+                 </span>
+                 <a href="#" title="Edit subscription" class="edit-action js-action-edit"><span><i></i><b>Edit</b></span></a>
+               </span>
+        </div>
+    </div>
+</div>

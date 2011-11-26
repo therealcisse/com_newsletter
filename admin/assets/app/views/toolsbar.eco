@@ -1,0 +1,28 @@
+<div class="toolsbar clearfix">
+    <div class="new-action pull-left">
+        <a class="btn primary" title="Add a new subscriber" id="new" href="#/subscribers/new">Add new &nbsp;</a> &nbsp;
+        <button class="btn" title="Reload all" data-loading-text='reloading...' id="refresh"></button>
+    </div>
+    <div class="pull-right clearfix">
+        <div class="bulk-action pull-left">
+            <select name="bulk-actions" id="bulk-actions" title="Perform bulk actions on selected subscribers">
+                <option value="direction" selected>Bulk actions : &nbsp;</option>
+                <option value="delete" title="Delete the selected subscribers">Delete</option>
+                <option value="publish" title="Publish the selected subscribers">Publish</option>
+                <option value="unpublish" title="Unpublish the selected subscribers">Unpublish</option>
+                <option value="activate" title="Activate the selected subscribers">Activate</option>
+                <option value="deactivate" title="Deactivate the selected subscribers">Deactivate</option>
+            </select>
+        </div>
+        <div class="sort-action pull-left">
+            <select name="sort-actions" id="sort-actions" title="Sort">
+                <option value="direction">Sort by : &nbsp;</option>
+                <option value="recent" title="Sort by most recent subscribers">Most recent</option>
+                <option value="name" title="Sort by fullname">Full name</option>
+                <option value="email" title="Sort by most email">Email</option>
+                <option value="category" title="Sort by number of categories">Categories</option>
+                <option value="language" title="Sort by number of languages">Languages</option>
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<form>
+    <div class="actions top">
+        <!--<input type="submit" class="btn primary" data-loading-text="Creating subscription..." value="Subscribe">&nbsp;
+        <a href="#" class="btn cancel">Cancel and go back</a>-->
+        <div><h5><%= if @id? then "Edit subscription" else "Add subscription"  %></h5></div>
+    </div>
+    <fieldset class="details">
+        <legend><h6>Details</h6></legend>
+        <div class="clearfix">
+            <label for="first_name">First name:</label>
+
+            <div class="input">
+                <input autofocus class="xlarge" id="first_name" value="<%= @first_name %>"
+                       name="first_name" size="20" type="text">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="first_name">Last name:</label>
+
+            <div class="input">
+                <input class="xlarge" id="last_name" value="<%= @last_name %>"
+                       name="last_name" size="20" type="text">
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="email">Email:</label>
+
+            <div class="input">
+                <div class="input-prepend">
+                    <span class="add-on">@</span>
+                    <input class="xlarge" id="email" value="<%= @email %>"
+                           name="email" style="width:243px;"
+                           size="30" type="text">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <% allLanguages = @constructor.getLanguages() %>
+    <% if allLanguages.length > 1 : %>
+        <fieldset>
+            <legend><h6>Languages</h6></legend>
+            <div id="languages">
+                <label for="languages_all"><input id="languages_all" type="checkbox" name="languages_all" value="all"> <em>Select all</em></label>
+                <% lselected=true %>
+                <% llselected=false %>
+                <% for language in allLanguages : %>
+                    <% llselected = @constructor.inArray(language.id, @languages or []) %>
+                    <% lselected = lselected and llselected %>
+                    <label for="<%= "llablel-#{language.id}" %>"><input type="checkbox" name="languages[]" id="<%= "llablel-#{language.id}" %>" <%= if llselected or (not @id and language['is_default'] is "1") then "#{checked='checked'}" else '' %> value="<%= language.id %>">
+                <span><%= language.title_native? and language.title_native or language.title %></span></label>
+                <% end %>
+                <br>
+            </div>
+            <script type="text/javascript">if(<%= lselected %>) $("#languages_all").selected(); </script>
+        </fieldset>
+    <% else : %>
+        <input type='hidden' name="languages[]" value="<%= allLanguages[0].id %>"  />
+    <% end %>
+    <fieldset>
+        <legend><h6>Categories</h6></legend>
+        <div id="categories">
+            <label for="categories_all"><input id="categories_all" type="checkbox" name="categories_all" value="all"> <em>Select all</em></label>
+            <% cselected=true %>
+            <% ccselected=false %>
+            <% for category in @constructor.getCategories() : %>
+                <% ccselected = @constructor.inArray(category.id, @categories or []) %>
+                <% cselected = cselected and ccselected %>
+                <label for="<%= "clablel-#{category.id}" %>"><input type="checkbox" name="categories[]" id="<%= "clablel-#{category.id}" %>" <%= if ccselected then "#{checked='checked'}" else '' %> value="<%= category.id %>">
+            <span><%= category.title %></span></label>
+            <% end %>
+            <br>
+        </div>
+        <script type="text/javascript">if(<%= cselected %>) $("#categories_all").selected(); </script>
+    </fieldset>
+    <div class="actions bottom">
+        <input id='subscribeformsubmit' type="submit" class="btn primary" data-loading-text="Creating subscription..." value="Subscribe">&nbsp;
+        <a href="#" class="btn cancel">Cancel and go back</a>
+    </div>
+</form>
